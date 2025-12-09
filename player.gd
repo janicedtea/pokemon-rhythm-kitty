@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var walk_speed = 4
-const tile_size = 64
+const tile_size = 16
 
 @onready var anim_tree = $AnimationTree
 @onready var anim_state = anim_tree.get("parameters/playback")
