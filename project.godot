@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="pokemon rhythm kitty"
-run/main_scene="uid://b7clklaklcvu3"
+run/main_scene="uid://d3jicvlg0mt84"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

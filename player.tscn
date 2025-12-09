@@ -382,6 +382,7 @@ position = Vector2(3.7252903e-09, 4.656613e-10)
 scale = Vector2(0.025, 0.024999999)
 texture = ExtResource("2_onrkg")
 centered = false
+offset = Vector2(0, -1)
 hframes = 2
 vframes = 6
 frame = 1
