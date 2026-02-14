@@ -25,8 +25,8 @@ func _ready():
 	
 
 func _physics_process(delta):
-	if player_state == PlayerState.turning:
-		return
+	#if player_state == PlayerState.turning:
+		#return
 	if is_moving == false:
 		process_player_input()
 	elif input_direction != Vector2.ZERO:
@@ -47,14 +47,15 @@ func process_player_input():
 		anim_tree.set("parameters/Turn/blend_position", input_direction)
 		
 		if need_to_turn():
-			player_state - PlayerState.turning
-			anim_state.travel("turn")
+			player_state = PlayerState.turning
+			anim_state.travel("Turn")
 		else:
 			initial_position = position
 			is_moving = true
 	else:
 		anim_state.travel("Idle")
-		
+
+
 func need_to_turn():
 	var new_facing_direction
 	if input_direction.x < 0:
@@ -83,4 +84,7 @@ func move(delta):
 		is_moving = false
 	else: 
 		position = initial_position + (tile_size * input_direction * percent_moved_to_next_tile)
-	
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name.begins_with("turn"):
+		finished_turning()

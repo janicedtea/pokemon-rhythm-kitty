@@ -11,7 +11,7 @@ var pass_threshold = 300
 func _init():
 	set_process(false)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	global_position += Vector2(0, fall_speed)
 
 	#how long it takes for arrow to reach key
