@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtof3ehdah4vy"]
+
+[ext_resource type="Texture2D" uid="uid://c661ulnnwscj1" path="res://arrowspritesheet.png" id="1_2k37l"]
+[ext_resource type="Script" uid="uid://2rsf7vgem52s" path="res://key_listener.gd" id="2_cs670"]
+
+[node name="KeyListener" type="Sprite2D"]
+position = Vector2(128.00002, 80)
+scale = Vector2(0.96666664, 0.9444444)
+texture = ExtResource("1_2k37l")
+hframes = 4
+vframes = 3
+script = ExtResource("2_cs670")
+key_name = "button_D"
