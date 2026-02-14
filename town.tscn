@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://d3jicvlg0mt84"]
+[gd_scene load_steps=8 format=4 uid="uid://d3jicvlg0mt84"]
 
 [ext_resource type="PackedScene" uid="uid://b7clklaklcvu3" path="res://player.tscn" id="1_x5mr4"]
 [ext_resource type="Texture2D" uid="uid://dhod2as50hoow" path="res://grass1_tileset.png" id="2_dwdjc"]
 [ext_resource type="Texture2D" uid="uid://ck4148fltvntp" path="res://water_tileset1.png" id="2_e8yg3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e8yg3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dwdjc"]
 texture = ExtResource("2_dwdjc")
@@ -27,16 +29,28 @@ texture = ExtResource("2_dwdjc")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gwqsq"]
 texture = ExtResource("2_e8yg3")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_x5mr4"]
+physics_layer_0/collision_layer = 7
+physics_layer_0/collision_mask = 7
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_e8yg3")
 sources/0 = SubResource("TileSetAtlasSource_dwdjc")
 sources/2 = SubResource("TileSetAtlasSource_gwqsq")
 

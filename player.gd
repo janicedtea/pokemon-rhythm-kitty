@@ -77,13 +77,17 @@ func finished_turning():
 	player_state = PlayerState.idle
 	
 func move(delta):
-	percent_moved_to_next_tile += walk_speed * delta
-	if percent_moved_to_next_tile >= 1:
-		position = initial_position + (tile_size * input_direction)
-		percent_moved_to_next_tile = 0
+	var motion = input_direction * tile_size * walk_speed * delta
+	if move_and_collide(motion):
 		is_moving = false
-	else: 
-		position = initial_position + (tile_size * input_direction * percent_moved_to_next_tile)
+		input_direction = Vector2.ZERO
+		return
+	percent_moved_to_next_tile += walk_speed * delta
+	if percent_moved_to_next_tile >= 1.00:
+		percent_moved_to_next_tile = 0.00
+		is_moving = false
+		input_direction = Vector2.ZERO
+
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name.begins_with("turn"):
