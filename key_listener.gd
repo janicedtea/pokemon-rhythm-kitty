@@ -8,7 +8,19 @@ var falling_key_queue = []
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(key_name):
-		CreateFallingKey()
+		pass
+	
+	if falling_key_queue.size() > 0:
+		var fk = falling_key_queue.front()
+		
+		if not is_instance_valid(fk):
+			falling_key_queue.pop_front()
+			return
+		
+		if fk.has_passed:
+			falling_key_queue.pop_front()
+			print("popped")
+
 	
 func CreateFallingKey():
 	var fk_inst = falling_key.instantiate()
@@ -16,3 +28,9 @@ func CreateFallingKey():
 	fk_inst.Setup(position.x, frame + 4)
 	
 	falling_key_queue.push_back(fk_inst)
+
+
+func _on_random_spawn_timer_timeout() -> void:
+	CreateFallingKey()
+	$RandomSpawnTimer.wait_time = randf_range(0.4, 3)
+	$RandomSpawnTimer.start()
