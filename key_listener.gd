@@ -22,7 +22,11 @@ func _process(_delta: float) -> void:
 			print("popped")
 			
 		if Input.is_action_just_pressed(key_name):
-			falling_key_queue.pop_front().queue_free()
+			var key_to_pop = falling_key_queue.pop_front()
+			
+			var distance_from_pass = abs(key_to_pop.pass_threshold - key_to_pop.global_position.y)
+			Signals.IncrementScore.emit(100)
+			key_to_pop.queue_free()
 
 	
 func CreateFallingKey():

@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 	#how long it takes for arrow to reach key
 	if global_position.y > pass_threshold and not has_passed:
 		has_passed = true
-		print($Timer.wait_time - $Timer.time_left)
+		#print($Timer.wait_time - $Timer.time_left)
 		$Timer.stop()
 		has_passed = true
 		

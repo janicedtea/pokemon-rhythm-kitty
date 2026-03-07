@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dle3qol4hfr31"]
+
+[ext_resource type="Script" uid="uid://cy6152y3omwav" path="res://game_ui.gd" id="1_ue6oa"]
+
+[node name="GameUI" type="Node"]
+script = ExtResource("1_ue6oa")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="score_label" type="RichTextLabel" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 0.15187645
+offset_top = -0.038026333
+offset_right = 92.6108
+offset_bottom = 24.779202
+theme_override_font_sizes/normal_font_size = 10
+text = "0 points"
+fit_content = true
