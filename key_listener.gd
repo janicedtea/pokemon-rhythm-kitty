@@ -25,12 +25,12 @@ func _process(_delta: float) -> void:
 func CreateFallingKey():
 	var fk_inst = falling_key.instantiate()
 	get_tree().get_root().call_deferred("add_child", fk_inst)
-	fk_inst.Setup(position.x, frame + 4)
+	fk_inst.call_deferred("Setup", position.x, frame + 4)
 	
 	falling_key_queue.push_back(fk_inst)
-
 
 func _on_random_spawn_timer_timeout() -> void:
 	CreateFallingKey()
 	$RandomSpawnTimer.wait_time = randf_range(0.4, 3)
 	$RandomSpawnTimer.start()
+	
