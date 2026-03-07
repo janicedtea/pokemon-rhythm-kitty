@@ -20,6 +20,9 @@ func _process(_delta: float) -> void:
 		if fk.has_passed:
 			falling_key_queue.pop_front()
 			print("popped")
+			
+		if Input.is_action_just_pressed(key_name):
+			falling_key_queue.pop_front().queue_free()
 
 	
 func CreateFallingKey():
