@@ -1,7 +1,9 @@
 extends Sprite2D
 
 @onready var falling_key = preload("res://falling_key.tscn")
+@onready var score_text = preload("res://score_press_text.tscn")
 @export var key_name: String = ""
+
 
 var falling_key_queue = []
 
@@ -49,7 +51,11 @@ func _process(_delta: float) -> void:
 				pass
 			
 			key_to_pop.queue_free()
-
+			
+			var st_inst = score_text.instantiate()
+			get_tree().get_root().call_deferred("add_child", st_inst)
+			st_inst.global_position = global_position
+			st_inst.global_position.x -= 40;
 	
 func CreateFallingKey():
 	var fk_inst = falling_key.instantiate()
