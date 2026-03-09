@@ -8,7 +8,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("RichTextLabel:modulate")
+tracks/0/path = NodePath("ScoreLevelText:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -20,7 +20,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RichTextLabel:position")
+tracks/1/path = NodePath("ScoreLevelText:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -49,7 +49,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("RichTextLabel:modulate")
+tracks/0/path = NodePath("ScoreLevelText:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -61,7 +61,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RichTextLabel:position")
+tracks/1/path = NodePath("ScoreLevelText:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -77,14 +77,17 @@ _data = {
 &"fall": SubResource("Animation_xiogk")
 }
 
-[node name="score_press_text" type="Node2D"]
+[node name="score_press_text" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_ns6c3")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="ScoreLevelText" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_top = 10.0
 offset_right = 75.0
 offset_bottom = 35.00007
-theme_override_colors/default_color = Color(0, 1, 1, 1)
+theme_override_colors/default_color = Color(0.5882353, 0.9490196, 0.972549, 1)
 theme_override_colors/font_outline_color = Color(7.719958, 7.7199597, 7.719959, 1)
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/normal_font_size = 12

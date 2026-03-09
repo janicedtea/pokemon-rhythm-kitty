@@ -8,10 +8,10 @@ extends Sprite2D
 var falling_key_queue = []
 
 # if distance_from_pass is less than threshold then give that score
-var perfect_press_threshold: float = 30
-var great_press_threshold: float = 50
-var good_press_threshold: float = 60
-var ok_press_threshold: float = 80
+var perfect_press_threshold: float = 20
+var great_press_threshold: float = 25
+var good_press_threshold: float = 30
+var ok_press_threshold: float = 35
 # otherwise miss
 
 var perfect_press_score: float = 250
@@ -38,24 +38,28 @@ func _process(_delta: float) -> void:
 			
 			var distance_from_pass = abs(key_to_pop.pass_threshold - key_to_pop.global_position.y)
 			
+			var press_score_text: String = ""
 			if distance_from_pass < perfect_press_threshold:
 				Signals.IncrementScore.emit(perfect_press_score)
+				press_score_text = "perfect"
 			elif distance_from_pass < great_press_threshold:
 				Signals.IncrementScore.emit(great_press_score)
+				press_score_text = "great"
 			elif distance_from_pass < good_press_threshold:
 				Signals.IncrementScore.emit(good_press_score)
+				press_score_text = "good"
 			elif distance_from_pass < ok_press_threshold:
 				Signals.IncrementScore.emit(ok_press_score)
+				press_score_text = "ok"
 			else:
-				# miss
-				pass
+				press_score_text = "miss"
 			
 			key_to_pop.queue_free()
 			
 			var st_inst = score_text.instantiate()
 			get_tree().get_root().call_deferred("add_child", st_inst)
-			st_inst.global_position = global_position
-			st_inst.global_position.x -= 40;
+			st_inst.SetTextInfo(press_score_text)
+			st_inst.global_position = global_position + Vector2(-35, 0)
 	
 func CreateFallingKey():
 	var fk_inst = falling_key.instantiate()
