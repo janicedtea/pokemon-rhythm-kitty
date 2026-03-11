@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d00juerflyluc"]
+[gd_scene load_steps=6 format=3 uid="uid://d00juerflyluc"]
 
 [ext_resource type="PackedScene" uid="uid://dtof3ehdah4vy" path="res://key_listener.tscn" id="1_bwyfi"]
 [ext_resource type="Texture2D" uid="uid://b24jrcfipyq8b" path="res://image-1.png.png" id="1_ibsu8"]
 [ext_resource type="PackedScene" uid="uid://dle3qol4hfr31" path="res://game_ui.tscn" id="2_df5pp"]
+[ext_resource type="PackedScene" uid="uid://bkc0th1i8jm7p" path="res://level_editor.tscn" id="4_qsd0w"]
 
 [sub_resource type="Environment" id="Environment_ibsu8"]
 background_mode = 3
@@ -41,3 +42,7 @@ key_name = "button_K"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ibsu8")
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="LevelEditor" parent="." instance=ExtResource("4_qsd0w")]

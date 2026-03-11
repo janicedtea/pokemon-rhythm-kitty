@@ -19,6 +19,10 @@ var great_press_score: float = 100
 var good_press_score: float = 50
 var ok_press_score: float = 20
 
+func _ready():
+	#GlowOverlay.frame = frame + 4
+	Signals.CreateFallingKey.connect(CreateFallingKey)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(key_name):
@@ -74,15 +78,16 @@ func _process(_delta: float) -> void:
 			st_inst.SetTextInfo(press_score_text)
 			st_inst.global_position = global_position + Vector2(-35, 0)
 	
-func CreateFallingKey():
-	var fk_inst = falling_key.instantiate()
-	get_tree().get_root().call_deferred("add_child", fk_inst)
-	fk_inst.call_deferred("Setup", position.x, frame + 4)
-	
-	falling_key_queue.push_back(fk_inst)
+func CreateFallingKey(button_name: String):
+	if button_name == key_name:
+		var fk_inst = falling_key.instantiate()
+		get_tree().get_root().call_deferred("add_child", fk_inst)
+		fk_inst.call_deferred("Setup", position.x, frame + 4)
+		
+		falling_key_queue.push_back(fk_inst)
 
 func _on_random_spawn_timer_timeout() -> void:
-	CreateFallingKey()
+	#CreateFallingKey()
 	$RandomSpawnTimer.wait_time = randf_range(0.4, 3)
 	$RandomSpawnTimer.start()
 	
