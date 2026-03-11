@@ -14,5 +14,13 @@ offset_top = -0.038026333
 offset_right = 92.6108
 offset_bottom = 24.779202
 theme_override_font_sizes/normal_font_size = 10
-text = "0 points"
+text = " 0 points"
 fit_content = true
+
+[node name="combo_label" type="RichTextLabel" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_top = 18.0
+offset_right = 60.855835
+offset_bottom = 36.854507
+theme_override_font_sizes/normal_font_size = 10
+text = " 0x combo"

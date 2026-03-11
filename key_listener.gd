@@ -8,10 +8,10 @@ extends Sprite2D
 var falling_key_queue = []
 
 # if distance_from_pass is less than threshold then give that score
-var perfect_press_threshold: float = 20
-var great_press_threshold: float = 25
-var good_press_threshold: float = 30
-var ok_press_threshold: float = 35
+var perfect_press_threshold: float = 15
+var great_press_threshold: float = 20
+var good_press_threshold: float = 25
+var ok_press_threshold: float = 30
 # otherwise miss
 
 var perfect_press_score: float = 250
@@ -32,6 +32,14 @@ func _process(_delta: float) -> void:
 		# if the falling key has passed remove it from queue
 		if fk.has_passed:
 			falling_key_queue.pop_front()
+			
+			#print miss
+			var st_inst = score_text.instantiate()
+			get_tree().get_root().call_deferred("add_child", st_inst)
+			st_inst.SetTextInfo("miss")
+			st_inst.global_position = global_position + Vector2(-35, 0)
+			Signals.ResetCombo.emit()
+			
 		# if key is pressed pop from queue and calculate distance from critical point
 		if Input.is_action_just_pressed(key_name):
 			var key_to_pop = falling_key_queue.pop_front()
@@ -42,17 +50,22 @@ func _process(_delta: float) -> void:
 			if distance_from_pass < perfect_press_threshold:
 				Signals.IncrementScore.emit(perfect_press_score)
 				press_score_text = "perfect"
+				Signals.IncrementCombo.emit()
 			elif distance_from_pass < great_press_threshold:
 				Signals.IncrementScore.emit(great_press_score)
 				press_score_text = "great"
+				Signals.IncrementCombo.emit()
 			elif distance_from_pass < good_press_threshold:
 				Signals.IncrementScore.emit(good_press_score)
 				press_score_text = "good"
+				Signals.IncrementCombo.emit()
 			elif distance_from_pass < ok_press_threshold:
 				Signals.IncrementScore.emit(ok_press_score)
 				press_score_text = "ok"
+				Signals.IncrementCombo.emit()
 			else:
 				press_score_text = "miss"
+				Signals.ResetCombo.emit()
 			
 			key_to_pop.queue_free()
 			
