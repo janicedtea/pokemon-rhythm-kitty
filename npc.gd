@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+const GameLevelScene = preload("res://game_level.tscn")
 
 var player_in_range = false
 
@@ -8,7 +8,8 @@ func _process(delta):
 		interaction()
 		
 func interact():
-	print("yay")
+	var level = preload("res://game_level.tscn").instantiate()
+	get_tree().current_scene.add_child(level)
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":

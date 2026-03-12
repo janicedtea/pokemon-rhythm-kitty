@@ -23,3 +23,6 @@ func IncrementCombo():
 func ResetCombo():
 	combo_count = 0
 	%combo_label.text = ""
+
+func _on_AudioStreamPlayer_finished():
+	get_tree().change_scene_to_file("res://town.tscn")

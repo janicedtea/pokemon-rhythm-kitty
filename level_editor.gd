@@ -60,4 +60,4 @@ func SpawnFallingKey(button_name: String, delay: float):
 
 
 func _on_music_player_finished() -> void:
-	print(fk_output_arr)
+	get_tree().change_scene_to_file("res://town.tscn")
