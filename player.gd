@@ -23,6 +23,19 @@ func _ready():
 	anim_tree.active = true
 	initial_position = position
 	
+var interact_target = null
+
+func _process(delta):
+	if interact_target and Input.is_action_just_pressed("interact"):
+		interact_target.interact()
+
+func _on_interaction_area_body_entered(body):
+	if body.has_method("interact"):
+		interact_target = body
+
+func _on_interaction_area_body_exited(body):
+	if body == interact_target:
+		interact_target = null
 
 func _physics_process(delta):
 	#if player_state == PlayerState.turning:
