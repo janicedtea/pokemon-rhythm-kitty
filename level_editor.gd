@@ -1,8 +1,8 @@
 extends Node2D
 
 #set this const before game start
-const in_edit_mode: bool = true
-var current_level_name = "magnetic"
+const in_edit_mode: bool = false
+var current_level_name = "rude"
 
 #time it takes for key to reach critical point
 var fk_fall_time: float = 4.3
@@ -72,3 +72,4 @@ func SpawnFallingKey(button_name: String, delay: float):
 func _on_music_player_finished() -> void:
 	print("finished array:", fk_output_arr)
 	get_tree().change_scene_to_file("res://town.tscn")
+	queue_free()

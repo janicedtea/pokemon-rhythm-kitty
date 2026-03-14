@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var walk_speed = 4
 const tile_size = 16
+var can_move = true
 
 @onready var anim_tree = $AnimationTree
 @onready var anim_state = anim_tree.get("parameters/playback")
@@ -25,7 +26,7 @@ func _ready():
 	
 var interact_target = null
 
-func _process(delta):
+func _process(_delta):
 	if interact_target and Input.is_action_just_pressed("interact"):
 		interact_target.interact()
 
@@ -38,6 +39,8 @@ func _on_interaction_area_body_exited(body):
 		interact_target = null
 
 func _physics_process(delta):
+	if !can_move:
+		return
 	#if player_state == PlayerState.turning:
 		#return
 	if is_moving == false:
