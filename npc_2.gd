@@ -1,7 +1,6 @@
 extends CharacterBody2D
-const GameLevelScene = preload("res://game_level.tscn")
-@export var player: CharacterBody2D
 
+@onready var player = get_parent().get_node("Player")
 var player_in_range = false
 
 func _process(_delta):
@@ -11,8 +10,8 @@ func _process(_delta):
 func interact():
 	var level = preload("res://game_level.tscn").instantiate()
 	level.get_node("LevelEditor").current_level_name = "eleven"
-	player.can_move = false
 	get_tree().current_scene.add_child(level)
+	player.can_move = false
 
 func _on_area_2d_body_entered(body):
 	if body.name == "Player":

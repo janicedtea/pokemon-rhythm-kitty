@@ -25,4 +25,5 @@ func ResetCombo():
 	%combo_label.text = ""
 
 func _on_AudioStreamPlayer_finished():
-	get_tree().change_scene_to_file("res://town.tscn")
+	#get_tree().change_scene_to_file("res://town.tscn") # <-- this will reset player position
+	pass

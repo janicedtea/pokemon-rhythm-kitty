@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 var walk_speed = 4
 const tile_size = 16
-var can_move = true
 
 @onready var anim_tree = $AnimationTree
 @onready var anim_state = anim_tree.get("parameters/playback")
@@ -13,6 +12,7 @@ enum FacingDirection {left, right, up, down}
 
 var player_state = PlayerState.idle
 var facing_direction = FacingDirection.down
+var can_move = true
 
 var initial_position = Vector2(0, 0)
 var input_direction = Vector2(0, 0)
