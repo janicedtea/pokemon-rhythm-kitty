@@ -72,4 +72,6 @@ func SpawnFallingKey(button_name: String, delay: float):
 func _on_music_player_finished() -> void:
 	print("finished array:", fk_output_arr)
 	get_tree().change_scene_to_file("res://town.tscn")
+	var player = get_parent().get_parent().get_node("Player")
+	player.can_move = true
 	queue_free()

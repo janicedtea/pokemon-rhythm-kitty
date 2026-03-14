@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d00juerflyluc"]
+[gd_scene load_steps=7 format=3 uid="uid://d00juerflyluc"]
 
 [ext_resource type="PackedScene" uid="uid://dtof3ehdah4vy" path="res://key_listener.tscn" id="1_bwyfi"]
+[ext_resource type="Script" uid="uid://cchfcvjgxrf4r" path="res://game_level.gd" id="1_g7mx2"]
 [ext_resource type="Texture2D" uid="uid://b24jrcfipyq8b" path="res://image-1.png.png" id="1_ibsu8"]
 [ext_resource type="PackedScene" uid="uid://dle3qol4hfr31" path="res://game_ui.tscn" id="2_df5pp"]
 [ext_resource type="PackedScene" uid="uid://bkc0th1i8jm7p" path="res://level_editor.tscn" id="4_qsd0w"]
@@ -11,6 +12,7 @@ glow_blend_mode = 1
 
 [node name="GameLevel" type="Node2D"]
 position = Vector2(0, 11)
+script = ExtResource("1_g7mx2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
