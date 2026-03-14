@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dle3qol4hfr31"]
+[gd_scene load_steps=3 format=3 uid="uid://dle3qol4hfr31"]
 
 [ext_resource type="Script" uid="uid://cy6152y3omwav" path="res://game_ui.gd" id="1_ue6oa"]
+[ext_resource type="Texture2D" uid="uid://bjitck42wp3ok" path="res://score_background.png" id="2_oaw30"]
 
 [node name="GameUI" type="Node"]
 script = ExtResource("1_ue6oa")
@@ -24,3 +25,51 @@ offset_right = 60.855835
 offset_bottom = 36.854507
 theme_override_font_sizes/normal_font_size = 10
 text = " 0x combo"
+
+[node name="ScoreScreen" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ScoreScreen"]
+position = Vector2(160.3306, 90.08264)
+texture = ExtResource("2_oaw30")
+
+[node name="Button" type="Button" parent="ScoreScreen"]
+offset_left = 139.29112
+offset_top = 131.64845
+offset_right = 182.29112
+offset_bottom = 151.64845
+theme_override_font_sizes/font_size = 8
+text = "continue"
+metadata/_edit_use_anchors_ = true
+
+[node name="FinalScore" type="RichTextLabel" parent="ScoreScreen"]
+unique_name_in_owner = true
+offset_left = 192.1162
+offset_top = 106.02441
+offset_right = 333.8996
+offset_bottom = 121.42676
+theme_override_font_sizes/normal_font_size = 10
+text = "Final score: "
+
+[node name="Types" type="RichTextLabel" parent="ScoreScreen"]
+unique_name_in_owner = true
+offset_left = 68.70378
+offset_top = 73.792984
+offset_right = 217.69684
+offset_bottom = 137.96654
+theme_override_font_sizes/normal_font_size = 8
+text = "Perfect: 
+Great: 
+Good: 
+Ok: 
+Miss: "
+
+[node name="MaxCombo" type="RichTextLabel" parent="ScoreScreen"]
+unique_name_in_owner = true
+offset_left = 191.26802
+offset_top = 80.57856
+offset_right = 334.74786
+offset_bottom = 102.76645
+theme_override_font_sizes/normal_font_size = 10
+text = "Max combo: "
+
+[connection signal="pressed" from="ScoreScreen/Button" to="." method="_on_button_pressed"]

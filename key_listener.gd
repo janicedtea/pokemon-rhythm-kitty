@@ -36,6 +36,7 @@ func _process(_delta: float) -> void:
 			return
 		# if the falling key has passed remove it from queue
 		if fk.has_passed:
+			Signals.IncrementScore.emit(1)
 			falling_key_queue.pop_front()
 			
 			#print miss
@@ -69,6 +70,7 @@ func _process(_delta: float) -> void:
 				press_score_text = "ok"
 				Signals.IncrementCombo.emit()
 			else:
+				Signals.IncrementScore.emit(1)
 				press_score_text = "miss"
 				Signals.ResetCombo.emit()
 			
