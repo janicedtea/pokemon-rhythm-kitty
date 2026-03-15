@@ -8,6 +8,11 @@ func _process(_delta):
 		interaction()
 		
 func interact():
+	var dialogue = preload("res://dialogue_layer.tscn").instantiate()
+	get_tree().current_scene.add_child(dialogue)
+	dialogue.start_dialogue(["*muttering* odd... true...", "mmm.... oh, what's that? hi there! name's barley", "i've just been learning some new tricks. you ever seen a talking cat? what about a counting one?", "one, two, three, four, five, six, seven... eleven? yeah, i'm not very good at the rest of them.", "why don't you try"], "Barley", preload("res://npc2.png"))
+	await dialogue.tree_exited
+	
 	var level = preload("res://game_level.tscn").instantiate()
 	level.get_node("LevelEditor").current_level_name = "eleven"
 	get_tree().current_scene.add_child(level)

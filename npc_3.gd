@@ -8,6 +8,11 @@ func _process(_delta):
 		interaction()
 		
 func interact():
+	var dialogue = preload("res://dialogue_layer.tscn").instantiate()
+	get_tree().current_scene.add_child(dialogue)
+	dialogue.start_dialogue(["zzz... oh, hi there! my name's chamomile, but you can call me cam", "im soooo eepy lately. have you got anything to wake me up?", "wow, you're quiet. i'm stumped here.", "...wait a minute!"], "Chamomile", preload("res://npc3.png"))
+	await dialogue.tree_exited
+	
 	var level = preload("res://game_level.tscn").instantiate()
 	level.get_node("LevelEditor").current_level_name = "magnetic"
 	get_tree().current_scene.add_child(level)

@@ -21,7 +21,7 @@ fit_content = true
 [node name="combo_label" type="RichTextLabel" parent="CanvasLayer"]
 unique_name_in_owner = true
 offset_top = 18.0
-offset_right = 60.855835
+offset_right = 78.976364
 offset_bottom = 36.854507
 theme_override_font_sizes/normal_font_size = 10
 text = " 0x combo"
@@ -53,9 +53,9 @@ text = "Final score: "
 [node name="Types" type="RichTextLabel" parent="ScoreScreen"]
 unique_name_in_owner = true
 offset_left = 68.70378
-offset_top = 73.792984
+offset_top = 82.792984
 offset_right = 217.69684
-offset_bottom = 137.96654
+offset_bottom = 129.23154
 theme_override_font_sizes/normal_font_size = 8
 text = "Perfect: 
 Great: 
